@@ -18,23 +18,36 @@ namespace _2266
             InitializeComponent();
         }
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-       
 
+        bool[] arrTFSix = {false, false, false, false, false, false, false};        
         
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             if (pictureBox1.Location.Y > 195)
             {
-                timer.Tick -= new EventHandler(Timer_Tick4);
+
                 timer.Tick -= new EventHandler(Timer_Tick3);
-                timer.Tick -= new EventHandler(Timer_Tick5);
                 timer.Tick -= new EventHandler(Timer_Tick1);
-                timer.Tick -= new EventHandler(Timer_Tick6);
+                timer.Tick -= new EventHandler(Timer_Tick5);
+                timer.Tick -= new EventHandler(Timer_Tick2);
+                timer.Tick -= new EventHandler(Timer_Tick4);
                 timer.Interval = 1;
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick2);
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick2);
+                }
             }
         }
 
@@ -44,15 +57,28 @@ namespace _2266
 
             if (pictureBox1.Location.Y < 93)
             {
+                
                 timer.Tick -= new EventHandler(Timer_Tick4);
                 timer.Tick -= new EventHandler(Timer_Tick5);
                 timer.Tick -= new EventHandler(Timer_Tick2);
-                timer.Tick -= new EventHandler(Timer_Tick1);
-                timer.Tick -= new EventHandler(Timer_Tick6);
-                //timer.Tick -= new EventHandler(Timer_Tick);
                 timer.Interval = 1;
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick3);
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+
+
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick3);
+                }
+                
             }
         }
 
@@ -61,14 +87,27 @@ namespace _2266
            
             if (pictureBox1.Location.Y > 93)
             {
-                 timer.Tick -= new EventHandler(Timer_Tick5);
+                
                 timer.Tick -= new EventHandler(Timer_Tick3);
                 timer.Tick -= new EventHandler(Timer_Tick2);
                 timer.Tick -= new EventHandler(Timer_Tick1);
                 timer.Tick -= new EventHandler(Timer_Tick6);
                 timer.Interval = 1;
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick4);
+                
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick4);
+                }
             }
         }
 
@@ -79,6 +118,7 @@ namespace _2266
 
             if (pictureBox1.Location.Y > 0)
             {
+               
                 timer.Tick -= new EventHandler(Timer_Tick4);
                 timer.Tick -= new EventHandler(Timer_Tick3);
                 timer.Tick -= new EventHandler(Timer_Tick2);
@@ -86,7 +126,21 @@ namespace _2266
                 timer.Tick -= new EventHandler(Timer_Tick6);
                 timer.Interval = 1;
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick5);
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+
+
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick5);
+                }
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -97,17 +151,29 @@ namespace _2266
                 timer.Tick -= new EventHandler(Timer_Tick5);
                 timer.Tick -= new EventHandler(Timer_Tick2);
                 timer.Tick -= new EventHandler(Timer_Tick3);
-                timer.Tick -= new EventHandler(Timer_Tick6);
-                //timer.Tick -= new EventHandler(Timer_Tick);
                 timer.Interval = 1;
+
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick1);
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick1);
+                }
             }
         }
         private void button6_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Location.Y < 279)
             {
+                
                 timer.Tick -= new EventHandler(Timer_Tick4);
                 timer.Tick -= new EventHandler(Timer_Tick5);
                 timer.Tick -= new EventHandler(Timer_Tick2);
@@ -116,40 +182,64 @@ namespace _2266
                 //timer.Tick -= new EventHandler(Timer_Tick);
                 timer.Interval = 1;
                 timer.Start();
-                timer.Tick += new EventHandler(Timer_Tick6);
+                bool bTF = false;
+                for (int i = 1; i < arrTFSix.Length; i++)
+                {
+                    if (arrTFSix[i])
+                    {
+                        bTF = true;
+                        break;
+                    }
+
+
+                }
+                if (!bTF)
+                {
+                    timer.Tick += new EventHandler(Timer_Tick6);
+                }
             }
         }
         void Timer_Tick2(object Sender, EventArgs e)
         {
+            
             if (pictureBox1.Location.Y > 195)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 1);
+                arrTFSix[2] = true;
             }
-            else if (pictureBox1.Location.Y == 195)
+            if (pictureBox1.Location.Y == 195)
             {
-                Thread.Sleep(5000);
+                arrTFSix[2] = false;
+                Thread.Sleep(2000);
             }
         }
         void Timer_Tick3(object Sender, EventArgs e)
         {
+
             if (pictureBox1.Location.Y < 93)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 1);
+                arrTFSix[3] = true;
             }
-            else if (pictureBox1.Location.Y == 93)
+            if (pictureBox1.Location.Y == 93)
             {
-                Thread.Sleep(5000);
+                arrTFSix[3] = false;
+                Thread.Sleep(2000);
             }
+           
         }
         void Timer_Tick1(object Sender, EventArgs e)
         {
+            
             if (pictureBox1.Location.Y < 195)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 1);
+                arrTFSix[1] = true;
             }
-            else if (pictureBox1.Location.Y == 195)
+            if (pictureBox1.Location.Y == 195)
             {
-                Thread.Sleep(5000);
+                arrTFSix[1] = false;
+                Thread.Sleep(2000);
             }
         }
         void Timer_Tick6(object Sender, EventArgs e)
@@ -157,35 +247,44 @@ namespace _2266
             if (pictureBox1.Location.Y < 279)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 1);
+                arrTFSix[6] = true;
             }
-            else if (pictureBox1.Location.Y == 279)
+            if (pictureBox1.Location.Y == 279)
             {
-                Thread.Sleep(5000);
+                arrTFSix[6] = false;
+                Thread.Sleep(2000);
             }
+            
         }
         void Timer_Tick4(object Sender, EventArgs e)
-        {
-            if (pictureBox1.Location.Y > 93)
+        {if (pictureBox1.Location.Y > 93)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 1);
+                arrTFSix[4] = true;
             }
-            else if (pictureBox1.Location.Y == 93)
+            if (pictureBox1.Location.Y == 93)
             {
-                Thread.Sleep(5000);
+                arrTFSix[4] = false;
+                Thread.Sleep(2000);
             }
+            
         }
         void Timer_Tick5(object Sender, EventArgs e)
-        {
-            if (pictureBox1.Location.Y > 0)
+        {if (pictureBox1.Location.Y > 0)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 1);
+                arrTFSix[5] = true;
             }
-            else if (pictureBox1.Location.Y == 195)
+            if (pictureBox1.Location.Y == 0)
             {
-                Thread.Sleep(5000);
+                arrTFSix[5] = false;
+                Thread.Sleep(2000);
             }
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
